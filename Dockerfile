@@ -1,13 +1,13 @@
 FROM node:12
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
-ADD package.json /app/package.json
+COPY package*.json ./
 
 RUN npm install
 
-ADD . /app
+COPY . .
 
-EXPOSE 5000
+EXPOSE 8080
 
-CMD ["npm", "run", "start"]
+CMD ["npm", "start"]
